@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,500;1,700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="app.js"></script>
+  <title>Weather Dashboard</title>
+</head>
+<body>
+  <header class="flex-container">
+    <div>
+      <button  id="btn">
+        <svg width="30" height="20" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle id="Ellipse 2" cx="15" cy="15" r="15" fill="#111111"/>
+        </svg>
+      </button>
+      <p>Dark Mode</p>
+    </div>
+    <div class="search-container flex-container" >
+      <img src="assats\search1.png" alt="search">
+      <input type="text" id="searchCity" placeholder="Search for your preffered e.g: israel tel aviv" required>
+    </div>
+    <div class="Current-location flex-container">
+      <img src="assats\current-location-icon.png" alt="current-location-icon">
+      <p>Current Location</p>
+    </div>
+  </header>
+  <main>
+    <div class="main-div-container">
+      <div class="row-container1">
+        <div class="ferst-party flex-container">
+          <h2 id="city">Athens</h2>
+          <div class="current-time flex-container">
+            <h1 class="h1_clock">09:03</h1>
+            <p id="weekDays"></p>
+          </div>
+        </div>
+        <div class="second-party">
+          <section class="section-1">
+            <div>
+              <h1 class="main-temp"><span id="main-temp">24</span>°C</h1>
+              <p>Feels like: <span id="feelLike">22</span>°C</p>
+            </div>
+            <div class="sun-decription">
+              <div class="flex-container">
+                <img  src="assats\sunrise-white1.png" alt="sunrise">
+                <div>
+                  <p id="sunrise">Sunrise</p>
+                  <p id="sunrise_hour">06:37 AM</p>
+                </div>
+              </div>
+              <div class="flex-container">
+                <img src="assats\sunset-white1.png" alt="sunset">
+                <div>
+                  <p id="sunset">Sunset</p>
+                  <p id="sunset_hour">20:37 AM</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="big_icon"></div>
+            <h2 id="main_description">Sunny</h2>
+          </section>
+          <section class="flex-container">
+            <div class="weather-description">
+              <img src="assats\humidity1.png" alt="humidity">
+              <p><span id="humidity">41</span>%</p>
+              <p>Humidity</p>
+              <img src="assats\pressure-white1.png" alt="pressure-white1">
+              <p ><span id="pressure"></span>hPa</p>
+              <p>Pressure</p>
+            </div>
+            <div class="weather-description">
+              <img src="assats\wind1.png" alt="wind1">
+              <p><span id="wind_speed">2</span>km/h</p>
+              <p>Wind Speed</p>
+              <img src="assats\uv-white1.png" alt="uv-white1">
+              <p id="uv">8</p>
+              <p>UV</p>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div class="row-container2">
+        <div class="days-forecast">
+          <h2>5 Days Forecast:</h2>
+          <div>
+            <img id="firstDay_icon" src="assats\clouds1.png" alt="">
+            <p ><span id="firstDay_temp"></span>°C</p>
+            <p id="firstDay">Friday, 1 Sep</p>
+          </div>
+          <div>
+            <img id="secondDay_icon" src="assats\clouds1.png" alt="">
+            <p ><span id="secondDay_temp"></span>°C</p>
+            <p id="secondDay">Saturday, 2 Sep</p>
+          </div>
+          <div>
+            <img id="thirdDay_icon" src="assats\clouds1.png" alt="">
+            <p ><span id="thirdDay_temp"></span>°C</p>
+            <p id="thirdDay">Sunday, 3 Sep</p>
+          </div>
+          <div>
+            <img id="fourthDay_icon" src="assats\clouds1.png" alt="">
+            <p ><span id="fourthDay_temp"></span>°C</p>
+            <p id="fourthDay">Monday, 4 Sep</p>
+          </div>
+          <div>
+            <img id="fifthDay_icon" src="assats\clouds1.png" alt="">
+            <p ><span id="fifthDay_temp"></span>°C</p>
+            <p id="fifthDay">Tuesday, 5 Sep</p>
+          </div>
+        </div>
+        <div class="hourly-forecast-container">
+          <h2 class="head-hourly-forecast">Hourly Forecast:</h2>
+          <div class="flex-container">
+            <section class="hourly-forecast">
+              <p>12:00</p>
+              <img id="_12_icon" src="assats\clouds1.png" alt="">
+              <p><span id="_12">26</span>°C</p>
+              <p class = "align-center" id="wind_dir_12"></p>
+              <p><span id="_12_wind"></span>km/h</p>
+            </section>
+            <section class="hourly-forecast">
+              <p>15:00</p>
+              <img id="_15_icon" src="assats\clouds1.png" alt="">
+              <p><span id="_15">26</span>°C</p>
+              <p class = "align-center" id="wind_dir_15"></p>
+              <p><span id="_15_wind"></span>km/h</p>
+            </section>
+            <section class="hourly-forecast">
+              <p>18:00</p>
+              <img id="_18_icon" src="assats\clouds1.png" alt="">
+              <p><span id="_18">26</span>°C</p>
+              <p class = "align-center" id="wind_dir_18"></p>
+              <p><span id="_18_wind"></span>km/h</p>
+            </section>
+            <section class="hourly-forecast">
+              <p>21:00</p>
+              <img id="_21_icon" src="assats\clouds1.png" alt="">
+              <p><span id="_21">26</span>°C</p>
+              <p class = "align-center" id="wind_dir_21"></p>
+              <p><span id="_21_wind"></span>km/h</p>
+            </section>
+            <section class="hourly-forecast">
+              <p >00:00</p>
+              <img id="_00_icon" src="assats\clouds1.png" alt="">
+              <p ><span id="_00"></span>°C</p>
+              <p class = "align-center" id="wind_dir_00"></p>
+              <p><span id="_00_wind"></span>km/h</p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
