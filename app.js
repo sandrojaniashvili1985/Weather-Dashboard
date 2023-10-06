@@ -175,10 +175,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       city = btn.val();
       const res = await geetWeatherByLocation(city)
       // search validation
-      if (res.error || !((res.location.name).toLowerCase()).includes(btn.val().toLowerCase())) {
-        return alert('City not found')
-      }
-      console.log(res);
+      // if (res.error || !((res.location.name).toLowerCase()).includes(btn.val().toLowerCase())) {
+      //   return alert('City not found')
+      // }
+      // console.log(res);
       showweather(res)
 
     }
