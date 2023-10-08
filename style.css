@@ -3,7 +3,7 @@ html{
     background-color: #f5f5f5;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    color: #333;
+    color: #fff;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -55,6 +55,9 @@ header{
 }
 
 header button{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   width: 100px;
   height: 30px;
   border-radius: 40px;
@@ -180,7 +183,7 @@ header button{
 
 /* days-forecast */
 .days-forecast{
-  padding: 20px;
+  padding: 20px 40px;
 }
 
 .days-forecast > div {
@@ -195,13 +198,25 @@ header button{
   flex-grow: 1;
 }
 
+.hourly-forecast-div-container{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
 .head-hourly-forecast{
   margin-bottom: 30px;
 }
+
 .hourly-forecast{
   border-radius: 40px;
-  background: #373636;
-  padding: 20px;
+  background: linear-gradient(171deg, #F88508 -12.41%, rgba(246, 250, 217, 0.00) 163.32%);
+  padding: 20px 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
 .align-center{
@@ -213,5 +228,16 @@ header button{
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: 10px;
+  column-gap: 15px;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.linear-gradient-blue {
+  background: linear-gradient(174deg, #443D64 -15.92%, rgba(101, 130, 198, 0.00) 192.45%);
 }

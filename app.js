@@ -165,6 +165,45 @@ async function showweather(res) {
 
 }
 
+let dark = true
+function darkMode() {
+  if (dark) {
+    // colors for light mode
+    $('body').css({ 'background': 'linear-gradient(113deg, #FFF 0.28%, rgba(70, 97, 115, 0.00) 178.65%)', 'color': '#292929' })
+    $('.search-container').css({ 'box-shadow': '0px 4px 40px 0px rgba(0, 0, 0, 0.25)', 'background': '#D9D9D9', 'color': 'rgba(217, 217, 217, 1)' })
+    $('.search-container input').css('color', 'rgba(0, 0, 0, 1)')
+    $('.row-container1 > div, .row-container2 > div').css('background-color', 'rgba(217, 217, 217, 1)')
+    $('header button').css('justify-content', 'flex-end')
+
+    // images for light mode
+    $('#sunrise_img').attr('src', 'assats/sunrise_black.png')
+    $('#sunseet_img').attr('src', 'assats/sunset-black.png')
+    $('#humidity_img').attr('src', 'assats/humidity-black.png')
+    $('#pressure_img').attr('src', 'assats/pressure-black.png')
+    $('#wind_img').attr('src', 'assats/wind-black.png')
+    $('#uv_img').attr('src', 'assats/uv-black.png')
+
+    dark = false
+  } else {
+    // colors for dark mode
+    $('body').css({ 'background': 'linear-gradient(110deg, #383838 0%, rgba(158, 158, 158, 0.00) 71.82%)', 'color': 'rgba(255, 255, 255, 1)' })
+    $('.search-container').css({ 'box-shadow': '0px 4px 40px 0px rgba(0, 0, 0, 0.25)', 'border': '1px solid #000', 'background': '#444', 'color': 'rgba(68, 68, 68, 1)' })
+    $('.search-container input').css('color', 'rgba(255, 255, 255, 0.6)')
+    $('.row-container1 > div, .row-container2 > div').css('background-color', 'rgba(68, 68, 68, 1)')
+    $('header button').css('justify-content', 'flex-start')
+
+    // images for dark mode
+    $('#sunrise_img').attr('src', 'assats/sunrise_white1.png')
+    $('#sunseet_img').attr('src', 'assats/sunset-white1.png')
+    $('#humidity_img').attr('src', 'assats/humidity1.png')
+    $('#pressure_img').attr('src', 'assats/pressure-white1.png')
+    $('#wind_img').attr('src', 'assats/wind1.png')
+    $('#uv_img').attr('src', 'assats/uv-white1.png')
+
+    dark = true
+  }
+}
+
 // event listener
 document.addEventListener('DOMContentLoaded', async () => {
   let city
@@ -175,12 +214,19 @@ document.addEventListener('DOMContentLoaded', async () => {
       city = btn.val();
       const res = await geetWeatherByLocation(city)
       // search validation
-      // if (res.error || !((res.location.name).toLowerCase()).includes(btn.val().toLowerCase())) {
-      //   return alert('City not found')
-      // }
-      // console.log(res);
+      if (res.error || !((res.location.name).toLowerCase()).includes(btn.val().toLowerCase())) {
+        return alert(`City not found, 
+try: ${res.location.country}  ${res.location.name}`)
+      }
       showweather(res)
-
     }
   })
+
+  $('#btn').on('click', () => {
+
+    darkMode()
+
+  })
+
 })
+
