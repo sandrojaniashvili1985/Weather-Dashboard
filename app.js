@@ -204,6 +204,22 @@ function darkMode() {
   }
 }
 
+// function to get the location of the user
+function showLocation() {
+  navigator.geolocation.getCurrentPosition((position) => {
+    const lat = String(position.coords.latitude).split('').splice(0, 6).join('');
+    const long = String(position.coords.longitude).split('').splice(0, 5).join('');
+
+    // console.log(lat, long);
+    geetWeatherByLocation(`${Number(lat)}, ${long}`)
+      .then(res => {
+        console.log(res.location.name);
+        $('#searchCity').val(res.location.name)
+      })
+      .catch(err => console.log(err))
+  });
+}
+
 // event listener
 document.addEventListener('DOMContentLoaded', async () => {
   let city
@@ -213,6 +229,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (e.key === 'Enter') {
       city = btn.val();
       const res = await geetWeatherByLocation(city)
+      console.log(res);
       // search validation
       if (res.error || !((res.location.name).toLowerCase()).includes(btn.val().toLowerCase())) {
         return alert(`City not found, 
@@ -220,6 +237,10 @@ try: ${res.location.country}  ${res.location.name}`)
       }
       showweather(res)
     }
+  })
+
+  $('.Current-location').on('click', () => {
+    showLocation()
   })
 
   $('#btn').on('click', () => {

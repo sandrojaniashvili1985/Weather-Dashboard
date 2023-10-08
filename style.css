@@ -54,7 +54,7 @@ header{
   justify-content: space-between !important;
 }
 
-header button{
+#btn{
   display: flex;
   justify-content: flex-start;
   align-items: center;
