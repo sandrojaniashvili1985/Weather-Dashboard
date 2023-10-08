@@ -213,7 +213,6 @@ function showLocation() {
     // console.log(lat, long);
     geetWeatherByLocation(`${Number(lat)}, ${long}`)
       .then(res => {
-        console.log(res.location.name);
         $('#searchCity').val(res.location.name)
       })
       .catch(err => console.log(err))
@@ -229,7 +228,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (e.key === 'Enter') {
       city = btn.val();
       const res = await geetWeatherByLocation(city)
-      console.log(res);
       // search validation
       if (res.error || !((res.location.name).toLowerCase()).includes(btn.val().toLowerCase())) {
         return alert(`City not found, 
